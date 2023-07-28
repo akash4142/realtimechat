@@ -1,0 +1,23 @@
+.message-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message {
+    max-width: 70%;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+  }
+
+  .message.sent {
+    background-color: #b3e6ff;
+    align-self: flex-start;
+  }
+
+  .message.received {
+    background-color: #ccffcc;
+    align-self: flex-end;
+  }
+
+  

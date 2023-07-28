@@ -2,9 +2,17 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+const path = require('path');
 
+app.set('view engine','hbs');
+app.set('views',path.join(__dirname,'views'))
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+    res.render('index');
+  });
+  
 
 io.on('connection', (socket) => {
     console.log('A user connected');
@@ -27,7 +35,7 @@ io.on('connection', (socket) => {
   });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 http.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

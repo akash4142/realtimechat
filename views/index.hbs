@@ -4,29 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Real-time Chat</title>
-  <style>
-    .message-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .message {
-      max-width: 70%;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 5px;
-    }
-
-    .message.sent {
-      background-color: #b3e6ff;
-      align-self: flex-start;
-    }
-
-    .message.received {
-      background-color: #ccffcc;
-      align-self: flex-end;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <h1>Real-time Chat</h1>
@@ -38,6 +16,6 @@
   </form>
 
   <script src="/socket.io/socket.io.js"></script>
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
