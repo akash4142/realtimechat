@@ -12,6 +12,23 @@ function appendMessage(message, isSent) {
   messagesDiv.appendChild(messageElement);
 }
 
+const modeToggleBtn = document.getElementById('mode-toggle');
+modeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
+
+function animateMessageSent(message) {
+    const messageElement = document.createElement('div');
+    messageElement.innerText = message;
+    messageElement.classList.add('message', 'sent', 'animated-message');
+    messagesDiv.appendChild(messageElement);
+  
+
+    setTimeout(() => {
+      messageElement.remove();
+    }, 3000); 
+  }
+
 chatForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const username = usernameInput.value.trim();
@@ -21,6 +38,7 @@ chatForm.addEventListener('submit', (e) => {
     socket.emit('setUsername', username);
     socket.emit('chatMessage', message);
     messageInput.value = '';
+    animateMessageSent(`${username}: ${message}`);
   }
 });
 
